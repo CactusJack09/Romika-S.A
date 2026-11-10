@@ -4,136 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RÓMIKA, S.A. | Comercio, Tecnología e Inversión</title>
-    <!-- Fuentes de Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset y Variables */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* --- Paleta Minimalista --- */
         :root {
-            --bg-dark: #05070A;
-            --bg-surface: #0C111C;
-            --bg-card: #111827;
-            --primary: #8B78E6;
-            --text-main: #FFFFFF;
-            --text-muted: #94A3B8;
-            --border: #1F293D;
+            --bg-base: #09090b;      /* Negro casi puro */
+            --bg-surface: #121214;   /* Gris muy oscuro para contraste */
+            --accent: #8B78E6;       /* Morado del logo */
+            --text-primary: #FAFAFA; 
+            --text-secondary: #A1A1AA;
+            --border-color: #27272A; /* Bordes muy sutiles */
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
         }
+
+        /* --- Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 
-        /* Header Fijo */
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; }
+
+        /* --- Header Minimalista --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1.2rem 5%;
-            background: rgba(5, 7, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
+            padding: 1.5rem 5%;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            z-index: 1000; border-bottom: 1px solid var(--border-color);
         }
-        .logo-img {
-            height: 45px; width: auto;
-            /* Si el logo no carga, mostrará un texto alternativo */
-            background-color: transparent;
-        }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
+        .logo-img { height: 35px; width: auto; }
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
         nav a {
-            color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
-            text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
-            transition: color 0.3s;
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            font-weight: 400; transition: color 0.3s;
         }
-        nav a:hover { color: var(--primary); }
+        nav a:hover { color: var(--text-primary); }
         .btn-nav {
-            padding: 0.6rem 1.5rem; border: 1px solid var(--primary);
-            color: var(--primary); border-radius: 4px; text-decoration: none;
-            font-weight: 600; transition: all 0.3s;
+            color: var(--text-primary); border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.85rem;
+            transition: border-color 0.3s;
         }
-        .btn-nav:hover { background: var(--primary); color: var(--bg-dark); }
+        .btn-nav:hover { border-color: var(--text-primary); }
 
-        /* Hero Section */
+        /* --- Hero Section (Centrado y Limpio) --- */
         .hero {
-            height: 100vh;
-            display: flex; align-items: center;
-            padding: 0 5%;
-            background: linear-gradient(to right, rgba(5,7,10,0.95) 40%, rgba(5,7,10,0.7) 100%),
-                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 5%;
+            background: radial-gradient(circle at top, rgba(139, 120, 230, 0.08) 0%, transparent 60%);
         }
-        .hero-content { max-width: 800px; }
         .hero-badge {
-            display: inline-block; padding: 0.4rem 1rem;
-            background: rgba(139, 120, 230, 0.1); border: 1px solid var(--primary);
-            color: var(--primary); font-size: 0.8rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;
+            color: var(--accent); font-size: 0.8rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2rem;
         }
-        .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; }
+        .hero h1 {
+            font-size: 4.5rem; line-height: 1.1; max-width: 1000px; margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 3rem;
+            font-weight: 300;
+        }
         .btn-main {
-            padding: 1rem 2.5rem; background: var(--primary);
-            color: var(--bg-dark); text-decoration: none; font-weight: 700;
-            border-radius: 4px; transition: transform 0.3s;
+            background: var(--text-primary); color: var(--bg-base);
+            padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;
+            transition: opacity 0.3s;
         }
-        .btn-main:hover { transform: translateY(-3px); }
+        .btn-main:hover { opacity: 0.8; }
 
-        /* Secciones Generales */
-        .section { padding: 8rem 5%; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .section-header p { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 600; }
-
-        /* Grid de Servicios (Bento) */
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-            max-width: 1400px; margin: 0 auto;
+        /* --- Estructura de Secciones --- */
+        .section { padding: 8rem 5%; border-top: 1px solid var(--border-color); }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .section-label {
+            color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 1rem;
         }
-        .card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            padding: 3rem 2rem; border-radius: 12px; transition: border 0.3s;
-        }
-        .card:hover { border-color: var(--primary); }
-        .card.wide { grid-column: span 2; }
-        .card-icon {
-            width: 50px; height: 50px; background: rgba(139, 120, 230, 0.1);
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        .card-icon svg { width: 24px; height: 24px; stroke: var(--primary); fill: none; stroke-width: 2; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .section-title { font-size: 2.5rem; margin-bottom: 4rem; max-width: 600px; line-height: 1.2; }
 
-        /* Respaldo Legal */
-        .legal-section { background: var(--bg-surface); text-align: center; }
-        .legal-box {
-            max-width: 900px; margin: 0 auto; padding: 4rem;
-            border: 1px solid var(--primary); border-radius: 12px;
-            background: var(--bg-card);
+        /* --- Grid de 3 Columnas (Pilares) --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+        .grid-item { border-top: 1px solid var(--border-color); padding-top: 2rem; }
+        .grid-item h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .grid-item p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
+
+        /* --- Sección Legal (Estilo Cita Editorial) --- */
+        .legal-quote {
+            border-left: 2px solid var(--accent); padding-left: 2rem; margin: 2rem 0;
+            font-size: 1.5rem; font-weight: 300; line-height: 1.5; color: var(--text-primary);
         }
-        .legal-box h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .legal-box p { font-size: 1.1rem; font-style: italic; color: var(--text-main); line-height: 1.8; margin-bottom: 2rem; }
-        .legal-data { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .legal-details { color: var(--text-secondary); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 2rem;}
 
-        /* Footer */
-        footer { background: #020306; padding: 5rem 5% 2rem; border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto 3rem; }
-        .footer-logo { height: 40px; margin-bottom: 1rem; }
-        .footer-text { color: var(--text-muted); font-size: 0.9rem; max-width: 300px; }
-        .footer-col h4 { color: var(--text-main); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 1rem; }
-        .footer-col ul { list-style: none; }
-        .footer-col li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
-        .footer-bottom { text-align: center; color: #475569; font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 2rem; max-width: 1400px; margin: 0 auto; }
+        /* --- Lista de Servicios (Minimalista) --- */
+        .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .service-item { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .service-icon {
+            color: var(--accent); flex-shrink: 0;
+        }
+        .service-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+        .service-text h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .service-text p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
 
-        /* Responsive */
+        /* --- Proceso (Línea de Tiempo) --- */
+        .process-timeline { display: flex; justify-content: space-between; position: relative; }
+        .process-timeline::before {
+            content: ''; position: absolute; top: 15px; left: 0; width: 100%; height: 1px;
+            background: var(--border-color); z-index: 1;
+        }
+        .process-step { position: relative; z-index: 2; max-width: 200px; }
+        .step-dot {
+            width: 30px; height: 30px; background: var(--bg-base); border: 1px solid var(--accent);
+            border-radius: 50%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; color: var(--accent);
+        }
+        .process-step h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .process-step p { color: var(--text-secondary); font-size: 0.85rem; font-weight: 300; }
+
+        /* --- FAQ Minimalista --- */
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-question {
+            padding: 1.5rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            font-size: 1.1rem; font-weight: 400; transition: color 0.3s;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question .arrow { color: var(--text-secondary); font-size: 1rem; transition: transform 0.3s; }
+        .faq-item.active .faq-question .arrow { transform: rotate(180deg); color: var(--accent); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-secondary); font-weight: 300; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
+
+        /* --- Footer Minimalista --- */
+        footer { padding: 4rem 5%; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .footer-logo { height: 30px; opacity: 0.5; }
+        .footer-text { color: var(--text-secondary); font-size: 0.85rem; font-weight: 300; }
+        .footer-legal { text-align: right; color: var(--text-secondary); font-size: 0.8rem; }
+
+        /* --- Responsive --- */
         @media (max-width: 900px) {
-            .hero h1 { font-size: 2.5rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .card.wide { grid-column: span 1; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 3rem; }
+            .grid-3, .services-list { grid-template-columns: 1fr; gap: 2rem; }
+            .process-timeline { flex-direction: column; gap: 2rem; }
+            .process-timeline::before { display: none; }
+            .footer-legal { text-align: left; }
             nav ul { display: none; }
         }
     </style>
@@ -142,113 +160,187 @@
 
     <header>
         <a href="#">
-            <!-- AQUÍ VA TU LOGO -->
-            <img src="logo-romika-blanco.png" alt="RÓMIKA" class="logo-img">
+            <img src="logo-romika-blanco.png" alt="RÓMIKA, S.A." class="logo-img">
         </a>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#legal">Empresa</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
         <a href="#contacto" class="btn-nav">Contacto</a>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">Comercio · Tecnología · Inversión</div>
-            <h1>Soluciones Tecnológicas y <span>Corporativas</span>.</h1>
-            <p>RÓMIKA, S.A. es una empresa guatemalteca enfocada en la importación, exportación, comercialización y arrendamiento de equipamiento digital y bienes muebles e inmuebles.</p>
-            <a href="#soluciones" class="btn-main">Ver Soluciones</a>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">Comercio · Tecnología · Inversión</div>
+        <h1>Infraestructura y Soluciones Tecnológicas de Alto Nivel.</h1>
+        <p>Somos una Sociedad Anónima guatemalteca dedicada a la importación, comercialización y arrendamiento de equipamiento digital y bienes corporativos.</p>
+        <a href="#nosotros" class="btn-main">Descubrir RÓMIKA</a>
     </section>
 
-    <section id="soluciones" class="section">
-        <div class="section-header">
-            <p>Portafolio de Servicios</p>
-            <h2>Áreas de Especialidad</h2>
-        </div>
-        
-        <div class="bento-grid">
-            <!-- Tarjeta 1 -->
-            <div class="card wide">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+    <!-- NOSOTROS / PILARES -->
+    <section id="nosotros" class="section">
+        <div class="container">
+            <div class="section-label">Nuestra Identidad</div>
+            <h2 class="section-title">Operamos bajo los más altos estándares legales y comerciales.</h2>
+            
+            <div class="grid-3">
+                <div class="grid-item">
+                    <h3>Comercio</h3>
+                    <p>Ejecutamos la compra, venta, importación y exportación de materia prima, equipos de cómputo y bienes muebles con total transparencia aduanal.</p>
                 </div>
-                <h3>Importación y Comercialización</h3>
-                <p>Facilitamos la adquisición de materia prima, computadoras, equipo de tecnología, equipo digital, útiles y enseres. Gestionamos la cadena de suministro para dotar a su empresa de las herramientas necesarias para su operación diaria.</p>
+                <div class="grid-item">
+                    <h3>Tecnología</h3>
+                    <p>Promovemos la transferencia e innovación tecnológica, proveyendo hardware de alto rendimiento para la operación de su empresa.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Inversión</h3>
+                    <p>Brindamos asesoría en la administración de bienes, derechos y acciones, así como esquemas de arrendamiento (Leasing) para optimizar su capital.</p>
+                </div>
             </div>
 
-            <!-- Tarjeta 2 -->
-            <div class="card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                </div>
-                <h3>Arrendamiento y Leasing</h3>
-                <p>Ofrecemos modalidades de arrendamiento, subarrendamiento y leasing para bienes muebles e inmuebles, permitiendo a su corporación optimizar sus recursos financieros.</p>
+            <div class="legal-quote">
+                "Nuestro objeto social abarca la comercialización, administración y uso de bienes muebles e inmuebles, así como la exportación, importación y comercialización de materia prima, computadoras y equipo digital."
             </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                </div>
-                <h3>Asesoría de Inversión</h3>
-                <p>Brindamos acompañamiento estratégico en la administración, comercialización y uso de bienes, derechos y acciones, protegiendo el capital de su empresa.</p>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="card wide">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-                </div>
-                <h3>Transferencia e Innovación Tecnológica</h3>
-                <p>Cumpliendo con nuestro objeto social, promovemos activamente la investigación, la innovación y la transferencia de tecnología entre las empresas y los sectores productivos del país.</p>
+            <div class="legal-details">
+                RÓMIKA, SOCIEDAD ANÓNIMA | REGISTRO MERCANTIL 848553
             </div>
         </div>
     </section>
 
-    <section id="legal" class="section legal-section">
-        <div class="legal-box">
-            <h3>Respaldo Legal y Corporativo</h3>
-            <p>"Nuestro objeto social abarca la comercialización, administración y uso de bienes muebles e inmuebles, así como la exportación, importación y comercialización de materia prima, computadoras y equipo digital."</p>
-            <div class="legal-data">
-                RÓMIKA, SOCIEDAD ANÓNIMA<br>
-                Registro Mercantil: 848553 | Folio: 624 | Libro: 1063
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section" style="background-color: var(--bg-surface);">
+        <div class="container">
+            <div class="section-label">Portafolio</div>
+            <h2 class="section-title">Soluciones diseñadas para la continuidad de su negocio.</h2>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <div class="service-text">
+                        <h3>Importación de Hardware</h3>
+                        <p>Traemos al país servidores, computadoras y equipo digital de marcas líderes, gestionando la logística y el desaduanaje de principio a fin.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                    </div>
+                    <div class="service-text">
+                        <h3>Leasing y Arrendamiento</h3>
+                        <p>Transforme sus gastos de capital en gastos operativos. Equipe su empresa mediante cuotas fijas mensuales, sin descapitalizarse.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <div class="service-text">
+                        <h3>Transferencia Tecnológica</h3>
+                        <p>Capacitamos a su personal y asesoramos en la adopción de nuevas herramientas digitales para maximizar el retorno de su inversión.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="service-text">
+                        <h3>Administración de Bienes</h3>
+                        <p>Gestionamos la compra, venta y permuta de bienes muebles e inmuebles, derechos y acciones, brindando seguridad jurídica a su corporación.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- PROCESO -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Metodología</div>
+            <h2 class="section-title">Un proceso claro y eficiente.</h2>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-dot">01</div>
+                    <h4>Diagnóstico</h4>
+                    <p>Evaluación de las necesidades de hardware de su empresa.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-dot">02</div>
+                    <h4>Cotización</h4>
+                    <p>Presentación de opciones de compra o Leasing.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-dot">03</div>
+                    <h4>Logística</h4>
+                    <p>Gestión aduanal e importación de los equipos.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-dot">04</div>
+                    <h4>Entrega</h4>
+                    <p>Instalación y soporte post-venta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background-color: var(--bg-surface);">
+        <div class="container">
+            <div class="section-label">Dudas Frecuentes</div>
+            <h2 class="section-title">Preguntas Frecuentes.</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo funciona el Leasing Tecnológico? <span class="arrow">▼</span></div>
+                    <div class="faq-answer">Es un modelo de arrendamiento donde usted paga una cuota mensual por el uso de los equipos, en lugar de comprarlos de golpe. Esto le permite renovar su tecnología sin afectar su flujo de caja.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuánto tarda la importación? <span class="arrow">▼</span></div>
+                    <div class="faq-answer">El tiempo depende del fabricante, pero gracias a nuestra experiencia en desaduanaje, optimizamos los tiempos para que reciba su hardware en el menor plazo posible.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Los equipos tienen garantía? <span class="arrow">▼</span></div>
+                    <div class="faq-answer">Sí. Al importar directamente de distribuidores autorizados, todos los equipos cuentan con la garantía oficial de fábrica y nuestro soporte técnico.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer id="contacto">
-        <div class="footer-grid">
-            <div>
-                <!-- LOGO EN EL FOOTER -->
-                <img src="logo-romika-blanco.png" alt="RÓMIKA" class="footer-logo">
-                <p class="footer-text">Especialistas en comercio, tecnología e inversión. Proveemos la infraestructura necesaria para el desarrollo de su empresa.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Contacto Directo</h4>
-                <ul>
-                    <li>📍 2 Calle 16-80 Zona 15 Col. El Maestro, Blvd. Vista Hermosa I, Local D.</li>
-                    <li>📞 +502 3058 5647</li>
-                    <li>📞 +502 3062 6136</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Información Legal</h4>
-                <ul>
-                    <li>RÓMIKA, S.A.</li>
-                    <li>Registro: 848553</li>
-                    <li>Categoría: Única</li>
-                    <li>Representante: Elva Emperatriz Chocoj Peñate</li>
-                </ul>
-            </div>
+        <div>
+            <img src="logo-romika-blanco.png" alt="RÓMIKA" class="footer-logo">
+            <p class="footer-text" style="margin-top: 1rem;">
+                2 Calle 16-80 Zona 15 Col. El Maestro,<br>
+                Blvd. Vista Hermosa I, Local D.<br>
+                +502 3058 5647 | +502 3062 6136
+            </p>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 RÓMIKA, S.A. Todos los derechos reservados.
+        <div class="footer-legal">
+            <p>RÓMIKA, SOCIEDAD ANÓNIMA</p>
+            <p>Registro Mercantil: 848553</p>
+            <p style="margin-top: 0.5rem; opacity: 0.5;">&copy; 2026 Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
