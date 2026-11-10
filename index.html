@@ -40,11 +40,28 @@
         header {
             position: fixed; top: 0; left: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 5%;
+            padding: 0.8rem 5%; /* Un poco menos de padding vertical para balancear el logo más grande */
             background: rgba(11, 17, 32, 0.98);
             z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .logo-img { height: 35px; width: auto; }
+        
+        .logo-container {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+
+        /* --- LOGO MÁS GRANDE Y CLARO --- */
+        .logo-img { 
+            height: 55px; /* Aumentado de 35px a 55px */
+            width: auto; 
+            object-fit: contain;
+        }
+        
+        /* Texto de respaldo si la imagen falla */
+        .fallback-logo {
+            display: none; color: #FFFFFF; font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;
+        }
+        .fallback-logo span { color: var(--accent); }
         
         /* Desktop Menu */
         .nav-links { display: flex; list-style: none; gap: 2rem; }
@@ -68,7 +85,7 @@
         /* --- Hero --- */
         .hero {
             position: relative; 
-            padding: 120px 5% 80px; 
+            padding: 140px 5% 80px; /* Aumenté el padding-top para que el logo grande no choque con el texto */
             display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
             min-height: 90vh;
         }
@@ -181,7 +198,7 @@
         /* --- Footer --- */
         footer { background: var(--navy-dark); padding: 4rem 5% 2rem; color: #94A3B8; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
-        .footer-logo { height: 30px; margin-bottom: 1rem; }
+        .footer-logo { height: 40px; margin-bottom: 1rem; }
         .footer-col h4 { color: #FFFFFF; font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 0.5rem; font-size: 0.85rem; }
@@ -191,7 +208,6 @@
            OPTIMIZACIÓN PARA MÓVILES Y TABLETS
            ========================================= */
         @media (max-width: 900px) {
-            /* Tablets */
             .hero h1 { font-size: 3rem; }
             .about-grid, .bento-grid, .why-grid { grid-template-columns: 1fr; gap: 2rem; }
             .service-card.large { grid-column: span 1; }
@@ -201,12 +217,10 @@
         }
 
         @media (max-width: 768px) {
-            /* Móviles */
-            header { padding: 1rem 1rem; }
-            .logo-img { height: 30px; }
+            header { padding: 0.8rem 1rem; }
+            .logo-img { height: 45px; } /* Logo un poco más pequeño en móvil pero sigue claro */
             .mobile-menu-btn { display: block; }
             
-            /* Menú desplegable */
             .nav-links {
                 display: none; position: absolute; top: 100%; left: 0; width: 100%;
                 background: var(--navy-dark); flex-direction: column; padding: 1.5rem;
@@ -215,9 +229,8 @@
             .nav-links.active { display: flex; }
             .btn-nav { display: none; }
 
-            /* Hero optimizado */
             .hero {
-                padding: 100px 1rem 50px; min-height: auto; text-align: center; align-items: center;
+                padding: 120px 1rem 50px; min-height: auto; text-align: center; align-items: center;
                 background: linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), 
                             url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
             }
@@ -225,7 +238,6 @@
             .hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; }
             .hero p { font-size: 0.95rem; margin-bottom: 2rem; }
             
-            /* Botones apilados */
             .hero-buttons { flex-direction: column; width: 100%; gap: 0.8rem; }
             .btn-primary, .btn-secondary { width: 100%; padding: 1rem; font-size: 0.95rem; }
 
@@ -242,7 +254,15 @@
 <body>
 
     <header>
-        <a href="#"><img src="logo-romika-blanco.png" alt="RÓMIKA, S.A." class="logo-img"></a>
+        <!-- ENLACE DEL LOGO CON FALLBACK -->
+        <a href="#" class="logo-container">
+            <img src="./logo-romika-blanco.png" 
+                 alt="RÓMIKA" 
+                 class="logo-img" 
+                 onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+            
+            <div id="fallback-logo" class="fallback-logo">RÓMIKA<span>.</span></div>
+        </a>
         
         <ul class="nav-links" id="navLinks">
             <li><a href="#nosotros">Nosotros</a></li>
@@ -440,7 +460,7 @@
     <footer id="contacto">
         <div class="footer-grid">
             <div>
-                <img src="logo-romika-blanco.png" alt="RÓMIKA, S.A." class="footer-logo">
+                <img src="./logo-romika-blanco.png" alt="RÓMIKA, S.A." class="footer-logo" onerror="this.style.display='none'">
                 <p style="font-size: 0.85rem; max-width: 300px;">Especialistas en desarrollo, importación y soluciones tecnológicas. Proveemos la infraestructura necesaria para el crecimiento de su empresa.</p>
             </div>
             <div class="footer-col">
