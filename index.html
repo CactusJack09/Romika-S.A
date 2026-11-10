@@ -4,113 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RÓMIKA, S.A. | Comercio, Tecnología e Inversión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Paleta Minimalista --- */
+        /* --- Paleta de Colores Light Mode (Corporativo) --- */
         :root {
-            --bg-base: #09090b;      /* Negro casi puro */
-            --bg-surface: #121214;   /* Gris muy oscuro para contraste */
-            --accent: #8B78E6;       /* Morado del logo */
-            --text-primary: #FAFAFA; 
-            --text-secondary: #A1A1AA;
-            --border-color: #27272A; /* Bordes muy sutiles */
-            --font-sans: 'Inter', sans-serif;
-            --font-heading: 'Outfit', sans-serif;
+            --bg-base: #FFFFFF;        /* Blanco puro */
+            --bg-surface: #F8FAFC;     /* Gris muy claro para secciones */
+            --text-main: #0F172A;      /* Azul Marino Oscuro para textos */
+            --text-muted: #475569;     /* Gris oscuro para párrafos */
+            --accent: #8B78E6;         /* Morado del logo */
+            --accent-hover: #7661D9;   /* Morado más oscuro para hover */
+            --navy-dark: #0F172A;      /* Azul marino para Header/Footer */
+            --border-color: #E2E8F0;   /* Bordes grises muy sutiles */
+            --transition: all 0.3s ease;
         }
 
         /* --- Reset --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: var(--font-sans);
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.6;
+            color: var(--text-main);
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: -0.5px; }
 
-        /* --- Header Minimalista --- */
+        /* --- Header (Fondo Oscuro para que resalte el logo) --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(9, 9, 11, 0.8);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            z-index: 1000; border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .logo-img { height: 35px; width: auto; }
         nav ul { display: flex; list-style: none; gap: 2.5rem; }
         nav a {
-            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
-            font-weight: 400; transition: color 0.3s;
+            color: #94A3B8; text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: var(--transition);
         }
-        nav a:hover { color: var(--text-primary); }
+        nav a:hover { color: #FFFFFF; }
         .btn-nav {
-            color: var(--text-primary); border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.85rem;
-            transition: border-color 0.3s;
+            color: #FFFFFF; border: 1px solid #334155;
+            padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-size: 0.85rem;
+            transition: var(--transition); font-weight: 500;
         }
-        .btn-nav:hover { border-color: var(--text-primary); }
+        .btn-nav:hover { background: #FFFFFF; color: var(--navy-dark); border-color: #FFFFFF; }
 
-        /* --- Hero Section (Centrado y Limpio) --- */
+        /* --- Hero Section (Limpio y Centrado) --- */
         .hero {
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 5%;
-            background: radial-gradient(circle at top, rgba(139, 120, 230, 0.08) 0%, transparent 60%);
+            text-align: center; padding: 0 5%; background-color: var(--bg-base);
         }
         .hero-badge {
-            color: var(--accent); font-size: 0.8rem; font-weight: 500;
+            color: var(--accent); font-size: 0.8rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2rem;
         }
         .hero h1 {
             font-size: 4.5rem; line-height: 1.1; max-width: 1000px; margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            color: var(--text-main);
         }
         .hero p {
-            font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 3rem;
+            font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem;
             font-weight: 300;
         }
         .btn-main {
-            background: var(--text-primary); color: var(--bg-base);
-            padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;
-            transition: opacity 0.3s;
+            background: var(--text-main); color: #FFFFFF;
+            padding: 0.8rem 2.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;
+            transition: var(--transition);
         }
-        .btn-main:hover { opacity: 0.8; }
+        .btn-main:hover { background: var(--accent); }
 
         /* --- Estructura de Secciones --- */
         .section { padding: 8rem 5%; border-top: 1px solid var(--border-color); }
         .container { max-width: 1200px; margin: 0 auto; }
         
         .section-label {
-            color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 2px; margin-bottom: 1rem;
+            color: var(--accent); font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 1rem; font-weight: 600;
         }
-        .section-title { font-size: 2.5rem; margin-bottom: 4rem; max-width: 600px; line-height: 1.2; }
+        .section-title { font-size: 2.5rem; margin-bottom: 4rem; max-width: 600px; line-height: 1.2; color: var(--text-main); }
 
         /* --- Grid de 3 Columnas (Pilares) --- */
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
-        .grid-item { border-top: 1px solid var(--border-color); padding-top: 2rem; }
-        .grid-item h3 { font-size: 1.3rem; margin-bottom: 1rem; }
-        .grid-item p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
+        .grid-item { border-top: 2px solid var(--border-color); padding-top: 2rem; transition: var(--transition); }
+        .grid-item:hover { border-top-color: var(--accent); }
+        .grid-item h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main); }
+        .grid-item p { color: var(--text-muted); font-size: 0.95rem; font-weight: 400; }
 
-        /* --- Sección Legal (Estilo Cita Editorial) --- */
+        /* --- Sección Legal (Cita) --- */
         .legal-quote {
-            border-left: 2px solid var(--accent); padding-left: 2rem; margin: 2rem 0;
-            font-size: 1.5rem; font-weight: 300; line-height: 1.5; color: var(--text-primary);
+            border-left: 3px solid var(--accent); padding-left: 2rem; margin: 3rem 0;
+            font-size: 1.4rem; font-weight: 300; line-height: 1.6; color: var(--text-main);
         }
-        .legal-details { color: var(--text-secondary); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 2rem;}
+        .legal-details { color: var(--text-muted); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
 
-        /* --- Lista de Servicios (Minimalista) --- */
+        /* --- Lista de Servicios --- */
         .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .service-item { display: flex; gap: 1.5rem; align-items: flex-start; }
         .service-icon {
-            color: var(--accent); flex-shrink: 0;
+            color: var(--accent); flex-shrink: 0; background: #F4F0FF; padding: 12px; border-radius: 8px;
         }
-        .service-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.5; }
-        .service-text h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .service-text p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
+        .service-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .service-text h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .service-text p { color: var(--text-muted); font-size: 0.95rem; font-weight: 400; }
 
         /* --- Proceso (Línea de Tiempo) --- */
         .process-timeline { display: flex; justify-content: space-between; position: relative; }
@@ -120,38 +121,50 @@
         }
         .process-step { position: relative; z-index: 2; max-width: 200px; }
         .step-dot {
-            width: 30px; height: 30px; background: var(--bg-base); border: 1px solid var(--accent);
+            width: 32px; height: 32px; background: var(--bg-base); border: 2px solid var(--accent);
             border-radius: 50%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; color: var(--accent);
+            font-size: 0.8rem; color: var(--accent); font-weight: 600;
         }
-        .process-step h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-        .process-step p { color: var(--text-secondary); font-size: 0.85rem; font-weight: 300; }
+        .process-step h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .process-step p { color: var(--text-muted); font-size: 0.85rem; font-weight: 400; }
 
-        /* --- FAQ Minimalista --- */
+        /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid var(--border-color); }
         .faq-question {
             padding: 1.5rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            font-size: 1.1rem; font-weight: 400; transition: color 0.3s;
+            font-size: 1.1rem; font-weight: 500; color: var(--text-main); transition: var(--transition);
         }
         .faq-question:hover { color: var(--accent); }
-        .faq-question .arrow { color: var(--text-secondary); font-size: 1rem; transition: transform 0.3s; }
+        .faq-question .arrow { color: var(--text-muted); font-size: 1rem; transition: transform 0.3s; }
         .faq-item.active .faq-question .arrow { transform: rotate(180deg); color: var(--accent); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-secondary); font-weight: 300; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-muted); font-weight: 400; }
         .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
 
-        /* --- Footer Minimalista --- */
-        footer { padding: 4rem 5%; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
-        .footer-logo { height: 30px; opacity: 0.5; }
-        .footer-text { color: var(--text-secondary); font-size: 0.85rem; font-weight: 300; }
-        .footer-legal { text-align: right; color: var(--text-secondary); font-size: 0.8rem; }
+        /* --- Footer (Fondo Oscuro) --- */
+        footer { 
+            background-color: var(--navy-dark); 
+            padding: 5rem 5% 3rem; 
+            display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; 
+        }
+        .footer-brand { max-width: 300px; }
+        .footer-logo { height: 35px; margin-bottom: 1.5rem; }
+        .footer-text { color: #94A3B8; font-size: 0.9rem; font-weight: 300; }
+        
+        .footer-contact h4 { color: #FFFFFF; font-size: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;}
+        .footer-contact p { color: #94A3B8; font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 300;}
+        
+        .footer-legal { 
+            text-align: right; color: #64748B; font-size: 0.8rem; margin-top: auto; width: 100%;
+            border-top: 1px solid #1E293B; padding-top: 2rem; display: flex; justify-content: space-between;
+        }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
             .hero h1 { font-size: 3rem; }
-            .grid-3, .services-list { grid-template-columns: 1fr; gap: 2rem; }
+            .grid-3, .services-list { grid-template-columns: 1fr; gap: 2.5rem; }
             .process-timeline { flex-direction: column; gap: 2rem; }
             .process-timeline::before { display: none; }
-            .footer-legal { text-align: left; }
+            .footer-legal { flex-direction: column; text-align: left; gap: 1rem; }
             nav ul { display: none; }
         }
     </style>
@@ -166,7 +179,8 @@
             <ul>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
         <a href="#contacto" class="btn-nav">Contacto</a>
@@ -261,7 +275,7 @@
     </section>
 
     <!-- PROCESO -->
-    <section class="section">
+    <section id="proceso" class="section">
         <div class="container">
             <div class="section-label">Metodología</div>
             <h2 class="section-title">Un proceso claro y eficiente.</h2>
@@ -292,7 +306,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" style="background-color: var(--bg-surface);">
+    <section id="faq" class="section" style="background-color: var(--bg-surface);">
         <div class="container">
             <div class="section-label">Dudas Frecuentes</div>
             <h2 class="section-title">Preguntas Frecuentes.</h2>
@@ -314,20 +328,25 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (Oscuro para resaltar el logo blanco) -->
     <footer id="contacto">
-        <div>
+        <div class="footer-brand">
             <img src="logo-romika-blanco.png" alt="RÓMIKA" class="footer-logo">
-            <p class="footer-text" style="margin-top: 1rem;">
-                2 Calle 16-80 Zona 15 Col. El Maestro,<br>
-                Blvd. Vista Hermosa I, Local D.<br>
-                +502 3058 5647 | +502 3062 6136
+            <p class="footer-text">
+                Especialistas en comercio, tecnología e inversión. Proveemos la infraestructura necesaria para el desarrollo de su empresa.
             </p>
         </div>
+        
+        <div class="footer-contact">
+            <h4>Contacto Directo</h4>
+            <p>2 Calle 16-80 Zona 15 Col. El Maestro,<br>Blvd. Vista Hermosa I, Local D.</p>
+            <p>+502 3058 5647</p>
+            <p>+502 3062 6136</p>
+        </div>
+
         <div class="footer-legal">
-            <p>RÓMIKA, SOCIEDAD ANÓNIMA</p>
-            <p>Registro Mercantil: 848553</p>
-            <p style="margin-top: 0.5rem; opacity: 0.5;">&copy; 2026 Todos los derechos reservados.</p>
+            <p>RÓMIKA, SOCIEDAD ANÓNIMA | Registro Mercantil: 848553</p>
+            <p>&copy; 2026 Todos los derechos reservados.</p>
         </div>
     </footer>
 
